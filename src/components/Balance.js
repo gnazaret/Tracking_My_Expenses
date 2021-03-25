@@ -5,7 +5,7 @@ const Balance = () => {
         <>
 
                 <h2>Your Balance Is</h2>
-                <h1 id="balance">$0.00</h1>
+                <h1>$0.00</h1>
         </>
     )
 }
