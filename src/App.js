@@ -4,13 +4,16 @@ import Balance from './components/Balance';
 import Income from './components/Income';
 import Transactions from './components/Transactions';
 import AddTransaction from './components/AddTransaction';
+import GlobalProvider from './context/GlobalState';
+
+
 
 import './App.css'
 
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
      <Header />
 
      <div className="container">
@@ -27,7 +30,7 @@ function App() {
 
      </div>
      
-    </div>
+     </GlobalProvider>
   );
 }
 
