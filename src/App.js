@@ -25,11 +25,23 @@ function App() {
     AppReducer,
     operations
   ) 
+ 
+  const [ state2, dispatch ] = useReducer(
+    AppReducer, 
+    operations);
 
 
+  const deleteTransaction = (id) => {
+      dispatch({
+        type: 'DELETE_TRANSACTION',
+        payload: id
+      })
+    }
+
+ 
 
   return (
-    <GlobalContext.Provider value={[state, reducer]}>
+    <GlobalContext.Provider value={[state, reducer, state2, dispatch, deleteTransaction]}>
      <Header />
 
      <div className="container">

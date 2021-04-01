@@ -17,6 +17,7 @@ import React, { createContext, useReducer } from 'react';
 // //Create context
 
  const GlobalContext = createContext(null);
+ 
 
 export default GlobalContext 
 
@@ -26,7 +27,7 @@ export default GlobalContext
 
     
 
-//     const [ state, dispatch ] = useReducer(AppReducer, operations);
+    // const [ state, dispatch ] = useReducer(AppReducer, operations);
 
 
 //     return (<GlobalContext.Provider value={{
