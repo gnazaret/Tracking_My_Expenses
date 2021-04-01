@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
+import Transaction from './Transaction';
 import GlobalContext from '../context/GlobalState';
+
 
 const Transactions = () => {
     const [ context, reducer ] = useContext(GlobalContext);
+    
 
-    console.log(context);
+    
 
     return (
         <div>
@@ -12,9 +15,7 @@ const Transactions = () => {
             <ul className="list">
                {context.transactions.map((transaction) => {
                      
-                     return (<li className="minus">
-                     {transaction.text} <span>-$100</span> <button className="delete-btn">X</button>
-                 </li>)
+                     return (<Transaction key={transaction.id} transaction={transaction}/>)
                })}
                
             </ul>
