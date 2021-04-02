@@ -1,7 +1,5 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer } from "react";
 // import AppReducer from './AppReducer'
-
-
 
 // const operations = {
 //     transactions: [
@@ -10,30 +8,25 @@ import React, { createContext, useReducer } from 'react';
 //         { id: 3, text: 'Griddle', amount: -150},
 //         { id: 4, text: 'Salary', amount: 2000}
 //     ]
-    
-// }
 
+// }
 
 // //Create context
 
- const GlobalContext = createContext(null);
- 
+const GlobalContext = createContext(null);
 
-export default GlobalContext 
+export default GlobalContext;
 
 // //Provider component
 
 // const GlobalProvider = ( { children }) => {
 
-    
-
-    // const [ state, dispatch ] = useReducer(AppReducer, operations);
-
+// const [ state, dispatch ] = useReducer(AppReducer, operations);
 
 //     return (<GlobalContext.Provider value={{
 //         transactions: state.transactions
 //     }
-        
+
 //     }>
 //         {children}
 //     </GlobalContext.Provider>)
@@ -41,4 +34,3 @@ export default GlobalContext
 // }
 
 // export default GlobalProvider;
-
