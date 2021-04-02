@@ -1,15 +1,15 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const transactionSchema = new Schema ({
-
+const transactionSchema = new Schema(
+  {
     text: String,
-    amount: Number
-
-}, {
-    timestamps: true
-}
+    amount: Number,
+  },
+  {
+    timestamps: true,
+  }
 );
 
-const Transaction = model('Transaction', transactionSchema)
+const Transaction = model("Transaction", transactionSchema);
 
-module.exports = Transaction;  
+module.exports = Transaction;
