@@ -7,10 +7,10 @@ const Transactions = () => {
 
   return (
     <div>
-      <h2>History</h2>
+      {/* <h2>History</h2> */}
       <ul className="list">
         {context.transactions.map((transaction) => {
-          return <Transaction key={transaction.id} transaction={transaction} />;
+          return <Transaction key={transaction._id} transaction={transaction} />;
         })}
       </ul>
     </div>

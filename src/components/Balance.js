@@ -1,10 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../context/GlobalState";
 
 const Balance = () => {
   const [context, reducer] = useContext(GlobalContext);
+  const [transactions, setTransactions] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch(`http://localhost:8000/api/tracking`);
+        const data = await response.json();
+        setTransactions(data);
+      } catch (error) {
+        console.log(error)
+      }
+    })();
+  });
 
-  const amounts = context.transactions.map((transaction) => transaction.amount);
+  const amounts = transactions.map((transaction) => transaction.amount);
   const total = amounts.reduce((acc, item) => (acc += item), 0);
 
   return (
