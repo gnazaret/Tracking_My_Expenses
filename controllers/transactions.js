@@ -27,6 +27,7 @@ transactionRouter.get("/:id", async (req, res) => {
   try {
     const foundTransaction = await Transaction.findById(req.params.id);
     res.status(200).json(foundTransaction);
+
   } catch (error) {
     res.status(400).json(error);
   }
@@ -34,12 +35,16 @@ transactionRouter.get("/:id", async (req, res) => {
 
 //DELETE
 
-transactionRouter.delete("/:id", async (req, res) => {
+transactionRouter.delete('/:id', async (req, res) => {
   try {
     const foundTransaction = await Transaction.findByIdAndDelete(req.params.id);
-    res.status(200).json(foundTransaction);
+    res
+    .status(200)
+    .json(foundTransaction);
+
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400)
+    .json(error);
   }
 });
 

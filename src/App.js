@@ -10,28 +10,29 @@ import AppReducer from "./context/AppReducer";
 import "./App.css";
 const operations = {
   transactions: [
-    { id: 1, text: "Comic Books", amount: -40 },
-    { id: 2, text: "Groceries", amount: -80 },
-    { id: 3, text: "Griddle", amount: -150 },
-    { id: 4, text: "Salary", amount: 2000 },
+    // { id: 1, text: "Comic Books", amount: -40 },
+    // { id: 2, text: "Groceries", amount: -80 },
+    // { id: 3, text: "Griddle", amount: -150 },
+    // { id: 4, text: "Salary", amount: 2000 },
   ],
 };
 
 function App() {
+  
   const [state, reducer] = useReducer(AppReducer, operations);
 
   const [state2, dispatch] = useReducer(AppReducer, operations);
 
-  const deleteTransaction = (id) => {
-    dispatch({
-      type: "DELETE_TRANSACTION",
-      payload: id,
-    });
-  };
+  // const deleteTransaction = (id) => {
+  //   dispatch({
+  //     type: "DELETE_TRANSACTION",
+  //     payload: id,
+  //   });
+  // };
 
   return (
     <GlobalContext.Provider
-      value={[state, reducer, state2, dispatch, deleteTransaction]}
+      value={[state, reducer]}
     >
       <Header />
 
