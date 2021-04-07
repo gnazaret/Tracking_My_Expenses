@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import GlobalContext from "../context/GlobalState";
+
 
 const Income = (props) => {
-  const [context, reducer] = useContext(GlobalContext);
+  
   const [transactions, setTransactions] = useState([]);
   const [transactionDelete, setTransactionDelete] = useState(false);
 
@@ -16,21 +16,11 @@ const Income = (props) => {
         console.log(error)
       }
     })();
-  });
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(`http://localhost:8000/api/tracking${props.match.params._id}`);
-        const data = await response.json();
-        setTransactionDelete(data);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, []);
-  const handleDelete = async e => {
+  }, [transactionDelete]);
+  
+  const handleDelete = async (e, id) => {
 		try {
-			const response = await fetch(`http://localhost:8000/api/tracking${props.match.params._id}`, {
+			const response = await fetch(`http://localhost:8000/api/tracking/${id}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'aplication/json'
@@ -54,7 +44,8 @@ const Income = (props) => {
     -1;
 
   return (
-    <div className="income-container">
+    <>
+    <div className="inc-exp-container">
       
       <div>
         <h3>Income</h3>
@@ -64,24 +55,31 @@ const Income = (props) => {
         <h3>Expenses</h3>
         <p className="money minus">{expenses}</p>
       </div> 
-      <h2>History</h2>
+     
+    </div>
+    <div>
+    <h2>History</h2>
       {transactions.map((transaction) => {
           return (
-            <li className="minus" key={transaction._id}> 
+            <ul className="list">
+              <li className={transaction.amount < 0 ? "minus" : "plus"} key={transaction._id}> 
       
-            {transaction.text}{" "}
-            <span>
-              {transaction.amount < 0 ? "-" : "+"}${Math.abs(transaction.amount)}
-            </span>{" "}
-            <button className="delete-btn" onClick={handleDelete}
-            >
-              X
-            </button>
+      {transaction.text}{" "}
+      <span>
+        {transaction.amount < 0 ? "-" : "+"}${Math.abs(transaction.amount)}
+      </span>{" "}
+      <button className="delete-btn" onClick={(e) => handleDelete(e , transaction._id)}
+      >
+        X
+      </button>
+      
+    </li>
+            </ul>
             
-          </li>
           );
         })}
     </div>
+    </>
   );
 };
 

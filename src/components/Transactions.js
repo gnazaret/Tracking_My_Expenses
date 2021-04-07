@@ -6,14 +6,17 @@ const Transactions = () => {
   const [context, reducer] = useContext(GlobalContext);
 
   return (
-    <div>
-      {/* <h2>History</h2> */}
+    <>
+      
       <ul className="list">
+        <li className="list">
         {context.transactions.map((transaction) => {
           return <Transaction key={transaction._id} transaction={transaction} />;
         })}
+        </li>
+       
       </ul>
-    </div>
+    </>
   );
 };
 
