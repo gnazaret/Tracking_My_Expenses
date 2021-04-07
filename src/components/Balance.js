@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import GlobalContext from "../context/GlobalState";
+
 
 const Balance = () => {
-  const [context, reducer] = useContext(GlobalContext);
+  
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     (async () => {
@@ -14,7 +14,7 @@ const Balance = () => {
         console.log(error)
       }
     })();
-  });
+  }, []);
 
   const amounts = transactions.map((transaction) => transaction.amount);
   const total = amounts.reduce((acc, item) => (acc += item), 0);

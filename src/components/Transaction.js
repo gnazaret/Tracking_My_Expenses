@@ -5,10 +5,7 @@ import GlobalContext from "../context/GlobalState";
 const Transaction = ({ transaction }) => {
   const [context, reducer] = useContext(GlobalContext);
 
-  // const [compras, setCompras] = useState({});
-
-  // const { deleteTransaction }  = useContext(GlobalContext);
-
+  
 
   const moneySign = transaction.amount < 0 ? "-" : "+";
   return (
