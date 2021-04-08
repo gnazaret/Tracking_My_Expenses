@@ -15,7 +15,7 @@ const AddTransaction = (props) => {
       amount: amountValue
     })
     try {
-      const response = await fetch("http://localhost:8000/api/tracking", {
+      const response = await fetch("/api/tracking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

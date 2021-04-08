@@ -26,9 +26,9 @@ app.use(cors({
 //
 app.use(express.json());
 if (process.env.NODE_ENV !== "development") {
-  app.use(express.static("public"));
+  app.use(express.static("build"));
 }
-app.use(/\.[0-9a-z]+$/i, express.static('public'));
+app.use(/\.[0-9a-z]+$/i, express.static('build'));
 
 app.use('/api/tracking', require('./controllers/transactions'))
 

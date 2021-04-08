@@ -7,7 +7,7 @@ const PieChart = () => {
     useEffect(() => {
         const makeApiCall = async () => {
             try {
-                const res = await fetch ('http://localhost:8000/api/tracking/');
+                const res = await fetch ('/api/tracking/');
                 const json = await res.json();
                 const formattedData = prepareData(json);
                 createChart(formattedData)

@@ -7,7 +7,7 @@ const Balance = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/tracking`);
+        const response = await fetch(`/api/tracking`);
         const data = await response.json();
         setTransactions(data);
       } catch (error) {
